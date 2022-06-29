@@ -22,8 +22,12 @@ const reqesthandler = (req, res) => {
       console.log(parseBody);
       const name = parseBody.split('=')[1];
       console.log(name);
-      fs.writeFileSync('abc.txt', name);
-      //res.setHeader('Location', '/');
+      // fs.writeFileSync('abc.txt', name);
+      fs.writeFileSync('abc.txt', name, (err) => {
+        //if(err)
+      });
+      res.setHeader('Location', '/');
+      res.end();
     });
   }
 };
